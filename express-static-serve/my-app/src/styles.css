@@ -2,28 +2,76 @@ body{
     overflow-y: scroll;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    background-color: rgb(34, 34, 34);
 }
 body::-webkit-scrollbar { /* WebKit */
     width: 0;
     height: 0;
 }
+#synthMenu{
+  font-family: 'Goldman', cursive;
+  font-size: 12px;
+  font-weight: 800;
+  background: linear-gradient(94deg, rgba(91,188,214,1) 0%, rgba(68,188,114,1) 26%, rgba(132,131,57,1) 48%, rgba(132,57,102,1) 94%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  width:97px;
+  height:25px;
+  top:75px;
+  left:0px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(34, 34, 34);
+  z-index: 30;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 #projectName{
 position: absolute;
-top:70px;
-left:300px;
-z-index: 30;
+font-family: 'Goldman', cursive;
+top:77px;
+left:103px;
+z-index: 5;
+padding:2px;
+background-color: rgb(191, 241, 255);
+color:rgb(34, 34, 34);
+}
+#projectName:focus{
+  outline: none;
 }
 #uploadButton{
+  padding-top:1.5px;
+  padding-bottom: 1.5px;
 position: absolute;
-top:30px;
-left:0;
-z-index: 30;
+top:78px;
+left:370px;
+z-index: 5;
+font-family: 'Goldman', cursive;
+  font-size: 12px;
+  color:rgb(91, 188, 214);
+  background-color:rgb(34, 34, 34);
 }
 #loadButton{
+  padding-top:1.5px;
+  padding-bottom: 1.5px;
 position: absolute;
-left: 0;
-top:0;
-z-index: 30;
+font-family: 'Goldman', cursive;
+left: 328px;
+top:78px;
+z-index: 5;
+  font-size: 12px;
+  color:rgb(91, 188, 214);
+  background-color:rgb(34, 34, 34);
 }
 .reactyloops{
   font-family: 'Big Shoulders Stencil Text', cursive;
@@ -248,6 +296,7 @@ box-sizing: border-box;
   border: solid 2px rgb(180, 180, 180);
   display: inline-block;
   text-align: center;
+  background-color: white;
 
   font-size: 14px;
   color:rgb(145, 145, 145);
@@ -262,7 +311,7 @@ box-sizing: border-box;
   height: 25px;
   display: inline-block;
   text-align: center;
-
+  background-color: white;
   font-size: 14px;
   color:rgb(165, 146, 146);
   border: 2px solid;
@@ -278,7 +327,7 @@ box-sizing: border-box;
   border: solid 2px rgb(180, 180, 180);
   display: inline-block;
   text-align: center;
-
+  background-color: white;
   font-size: 20px;
   color:rgb(180, 180, 180);
 }
@@ -303,6 +352,7 @@ box-sizing: border-box;
   border: 2px solid;
   border-image-source: linear-gradient(90deg, rgb(0, 255, 234) 0%, rgb(0, 255, 234) 4%, rgba(180,180,180,1) 4%, rgba(180,180,180,1) 100%);
   border-image-slice: 1; 
+  background-color: white;
 }
 .pianoOB{
   box-sizing: border-box;

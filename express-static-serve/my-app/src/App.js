@@ -6,7 +6,7 @@
 import React from "react";
 import axios from "axios";
 import "./styles.css";
-import { soundEffect, sounds } from "./sound.js";
+import { soundEffect, sounds } from "./SoundEngine.js";
 //--------------upload/load section------------------------------------
 let nameOfProject = Math.random() * 100
 let uploader = document.getElementById('uploadButton')
@@ -106,6 +106,26 @@ let synthChoice = 'sawtooth'; //"sine", "triangle", "square", "sawtooth"
 let reverbChoice = undefined//[1, 5, false];
 let echoChoice = undefined;
 let panChoice = 0;
+//----------------------synth select------------------------------
+
+let sawButton = document.getElementById('saw')
+let sineButton = document.getElementById('sin')
+let squareButton = document.getElementById('square')
+let triangleButton = document.getElementById('triangle')
+
+sawButton.addEventListener('click', () => {
+    synthChoice = 'sawtooth'
+})
+sineButton.addEventListener('click', () => {
+    synthChoice = 'sine'
+})
+squareButton.addEventListener('click', () => {
+    synthChoice = 'square'
+})
+triangleButton.addEventListener('click', () => {
+    synthChoice = 'triangle'
+})
+//----------------------synth select------------------------------
 
 
 //-----------------reverb/echo sliders--------------------------
@@ -226,6 +246,14 @@ export default class App extends React.Component {
             globalState = JSON.parse(JSON.stringify(this.state))
         })
     }
+    placer(index) {
+        this.setState({ playPosition: index })
+        globalState.playPosition = index
+        stop = true;
+        channelControl = 0;
+        line.setAttribute("x1", index * 25 + 100);
+        line.setAttribute("x2", index * 25 + 100);
+    }
     colorCaster(inst, index, pianoIndex) {
         if (inst === 'kick') {
             return this.state.project[index][inst] === true ? 'rgba(90, 85, 170, 1)' : 'white'
@@ -236,25 +264,25 @@ export default class App extends React.Component {
         if (inst === 'hihat') {
             return this.state.project[index][inst] === true ? 'rgba(246, 76, 70, 1)' : 'white'
         } if (inst === 'piano') {
-            return this.state.project[index].piano.includes(freqArray[pianoIndex]) ? 'rgba(22, 219, 0, 1)' : 'white'
+            return this.state.project[index].piano.includes(freqArray[pianoIndex]) ? 'rgba(46, 255, 199, 1) ' : 'white'
         }
     }
     render() {
         const { project } = this.state;
         const indicator = project.slice(0, 512).map((inst, xi) => {
             if (xi % 4 === 0) {
-                return (<div className='indicatorOB' id={'indicator' + String(xi * 4)}>{'bar:'}<span className='barFont'>{(Math.floor(xi / 4) + 1)}</span>{' beat:'}<span className='beatFont'>{String((xi % 4) + 1)}</span></div>)
+                return (<div className='indicatorOB' id={'indicator' + String(xi * 4)} onClick={() => this.placer(xi * 4)}>{'bar:'}<span className='barFont'>{(Math.floor(xi / 4) + 1)}</span>{' beat:'}<span className='beatFont'>{String((xi % 4) + 1)}</span></div>)
             }
             else {
-                return (<div className='indicator' id={'indicator' + String(xi * 4)}>{'bar:'}<span className='barFont'>{(Math.floor(xi / 4) + 1)}</span>{' beat:'}<span className='beatFont'>{String((xi % 4) + 1)}</span></div>)
+                return (<div className='indicator' id={'indicator' + String(xi * 4)} onClick={() => this.placer(xi * 4)}>{'bar:'}<span className='barFont'>{(Math.floor(xi / 4) + 1)}</span>{' beat:'}<span className='beatFont'>{String((xi % 4) + 1)}</span></div>)
             }
         })
         const subIndicator = project.map((inst, xi) => {
             if (xi % 16 === 0) {
-                return (<div className='subIndicatorOB' id={'indicator' + String(xi)}><span className='beatFont2'>{String((xi % 16) + 1) + '/16'}</span></div>)
+                return (<div className='subIndicatorOB' id={'indicator' + String(xi)} onClick={() => this.placer(xi)}><span className='beatFont2'>{String((xi % 16) + 1) + '/16'}</span></div>)
             }
             else {
-                return (<div className='subIndicator' id={'indicator' + String(xi)}><span className='beatFont2'>{String((xi % 16) + 1) + '/16'}</span></div>)
+                return (<div className='subIndicator' id={'indicator' + String(xi)} onClick={() => this.placer(xi)}><span className='beatFont2'>{String((xi % 16) + 1) + '/16'}</span></div>)
             }
         })
 
@@ -579,8 +607,10 @@ window.addEventListener('resize', () => {
 // let lineControl = 1;
 
 function lineAnimate(pos, lifeSpan) {
-    line.setAttribute("x1", pos);
-    line.setAttribute("x2", pos);
+    if (stop === false) {
+        line.setAttribute("x1", pos);
+        line.setAttribute("x2", pos);
+    }
     // if (stop !== true && lifeSpan < 5) {
     //     console.log('L' + lifeSpan)
     //     line.setAttribute("x1", pos);
@@ -692,9 +722,8 @@ playBtn.addEventListener("click", event => {
 
 stopBtn.addEventListener("click", event => {
     stop = true;
-    line.setAttribute("x1", globalState.playPosition + 100);
-    line.setAttribute("x2", globalState.playPosition + 100);
-    audioIndex = 0;
+    line.setAttribute("x1", globalState.playPosition * 25 + 100);
+    line.setAttribute("x2", globalState.playPosition * 25 + 100);
 });
 pauseBtn.addEventListener("click", event => {
     stop = true;
