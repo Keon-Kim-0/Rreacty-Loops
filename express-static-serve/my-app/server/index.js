@@ -12,8 +12,6 @@ const path = require("path");
 //===================================ppool time==================================
 const { Pool } = require('pg');
 
-
-
 const pool = new Pool({
     connectionString: "postgres://xzykdxia:cFpExSXuaxYZYtHWsQLXaUzQUY4lJjXm@lallah.db.elephantsql.com:5432/xzykdxia"
 });
@@ -205,7 +203,6 @@ app.use((err, req, res, next) => {
     return res.status(errorObj.status).json(errorObj.message);
 });
 
-// starting express server on port 5000
 let port = 8080
 app.listen(port, () => {
     console.log("server started on port: " + port);
