@@ -22,7 +22,7 @@ Reacty Loops keep nothing local, aimed for projects to be widely available, from
 
 ## Demo
 
-![RL demo](./assets/demo.gif 'Feature showcase')
+![RL demo](./demo.gif 'Feature showcase')
 
 ## Quick Start
 1. cd to my-app
