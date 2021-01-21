@@ -22,7 +22,7 @@ Reacty Loops keep nothing local, aimed for projects to be widely available, from
 
 ## Demo
 
-(./assets/demo.gif 'Feature showcase')
+![RL demo](./assets/demo.gif 'Feature showcase')
 
 ## Quick Start
 1. cd to my-app
@@ -41,7 +41,9 @@ Reacty Loops keep nothing local, aimed for projects to be widely available, from
 - Name your project to upload or load to the cloud database. This can be accessed from any device, by anyone.
 
 <br>
-If you like this project, please leave a star!
+If you liked my project, please leave a star!
+
+Connect with me on Linkedin
 [Keon Kim](linkedin.com/in/keon-w-kim/)
 <br>
 
