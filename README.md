@@ -44,6 +44,6 @@ Reacty Loops keep nothing local, aimed for projects to be widely available, from
 If you liked my project, please leave a star!
 
 Connect with me on Linkedin
-[Keon Kim](linkedin.com/in/keon-w-kim/)
+[Keon Kim](https://www.linkedin.com/feed/update/urn:li:activity:6759146947627548672/?commentUrn=urn%3Ali%3Acomment%3A(ugcPost%3A6758153205114306560%2C6759146866782322688))
 <br>
 
