@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@600&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <title>Reacty Loops</title>
+</head>
+
+<body>
+  <div id="navbar1">
+    <h2 class="reactyloops">ReactyLoops</h><img src="logo.png" class="logo" />
+  </div>
+  <div id="navbar2">
+    <button class='playButtons' id='playButton'><img src="playButton.png" /><button class='playButtons'
+        id='pauseButton'><img src="pauseButton.png" /></button></button><button class='playButtons' id='stopButton'><img
+        src="stopButton.png" /></button><span class='reactyloops2'>BPM</span><input id='bpmInput' maxlength="4"
+      size="4"></input>
+  </div>
+  <div class="dropdown">
+    <span id='synthMenu'>Synth Wave</span>
+    <div class="dropdown-content">
+      <div class='droppy' id='saw'><img src="saw.jpg" /></div>
+      <div class='droppy' id='sin'><img src="sin.png" /></div>
+      <div class='droppy' id='square'><img src="square.png" /></div>
+      <div class='droppy' id='triangle'><img src="triangle.png" /></div>
+    </div>
+  </div>
+  <button id='uploadButton'>upload</button>
+  <div id='reverbButton'>Reverb<label class="switch">
+      <input type="checkbox">
+      <span id='reverbSlider' class="slider round"></span>
+    </label></div>
+  <div id='echoButton'>Delay<label class="switch">
+      <input type="checkbox">
+      <span id='echoSlider' class="slider round"></span>
+    </label></div>
+  <input id='projectName' maxlength="16"></input>
+  <audio id='sample-Kick'>
+    <source src="./samples/Kick.mp3" type="audio/mp3">
+  </audio>
+  <audio id='sample-Snare'>
+    <source src="./samples/Snare.mp3" type="audio/mp3">
+  </audio>
+  <audio id='sample-HiHat'>
+    <source src="./samples/HiHat.mp3" type="audio/mp3">
+  </audio>
+
+
+  <img id='stickyPiano' class='pianoPic' src='piano.png' />
+  <div id="root"></div>
+
+  <div id="up" class="shape">
+    <svg id="svg">
+
+      <line id='line' x1="100" y1="0" x2="100" y2="400" style="stroke:rgb(255,0,0);stroke-width:6" />
+    </svg>
+  </div>
+</body>
+
+
+</div>
+
+</body>
+
+</html>
