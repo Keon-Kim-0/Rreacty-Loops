@@ -22,6 +22,7 @@
     "start-client": "react-scripts start",
     "buildserver": "babel server.js --out-file server.compiled.js",
     "build": "react-scripts build",
+    "bs": "react-scripts build && (nodemon server.js)",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

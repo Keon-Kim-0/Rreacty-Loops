@@ -185,7 +185,43 @@ let tpi = 115.3846153846154
 // let snare = document.getElementById('sample-Snare')
 // let hihat = document.getElementById('sample-HiHat')
 
-//----------------------------------------------
+//----------------the tip-------------------------
+
+
+let count = 50;
+let pos = -220;
+let distance = 310;
+let tip = document.getElementById("tip");
+window.addEventListener('load', (event) => {
+    setTimeout(() => {
+        slide();
+    }, 3000);
+    setTimeout(() => {
+        fade();
+    }, 10000);
+  });
+  function fade() {
+    tip.style.opacity = count/50
+    count--
+    if(count>-1) {setTimeout(() => {
+        fade();
+    }, 25);
+    }
+  }
+  function slide() {
+      pos = pos+(distance/30);
+      distance = distance*(29/30);
+      tip.style.top = pos + "px";
+      if(distance<=1){
+        return;
+      }else{
+        setTimeout(()=>{slide()},10);
+      }
+  }
+
+
+
+//----------------React-------------------------
 
 
 export default class App extends React.Component {
