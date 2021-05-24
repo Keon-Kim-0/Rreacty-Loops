@@ -25,7 +25,7 @@ Reacty Loops keep nothing local, aimed for projects to be widely available, from
 
 ![RL demo](./demo.gif 'Feature showcase')
 
-## Quick Start
+## Quick Start (*for deployment only, if you just want to use the application, visit: http://reactyloops.us-east-1.elasticbeanstalk.com/ )
 1. cd to my-app
 2. npm install
 3. npm start
